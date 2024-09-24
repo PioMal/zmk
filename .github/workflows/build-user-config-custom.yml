@@ -65,6 +65,7 @@ jobs:
         with:
           tokenPrefix: '##{'
           tokenSuffix: '}##'
+          files: '["**/*.defconfig"]'
         env:
           KEYBOARD_NAME: ${{ inputs.keyboard_name }}
  
