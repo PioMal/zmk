@@ -11,8 +11,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: tgymnich/fork-sync@v1.8
+      - name: Update forked repository
+        uses: tgymnich/fork-sync@v1.8
         with:
           owner: PioMal
           base: main
           head: main
+
+      - name: discord-notify
+        uses: fateyan/action-discord-notifier@v1
+        with:
+          webhook: ${{ secrets.DISCORD_WEBHOOK }}
+          message-title: 'Updated forked ZMK repository'
+            
