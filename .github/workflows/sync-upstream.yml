@@ -20,7 +20,7 @@ jobs:
           auto_approve: true
 
       - name: discord-notify
-        uses: fateyan/action-discord-notifier@v1
+        uses: fateyan/action-discord-notifier@v1.2.0
         with:
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
           message-title: 'Updated forked ZMK repository'
