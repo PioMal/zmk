@@ -17,6 +17,7 @@ jobs:
           owner: PioMal
           base: main
           head: main
+          auto_approve: true
 
       - name: discord-notify
         uses: fateyan/action-discord-notifier@v1
