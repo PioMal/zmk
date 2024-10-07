@@ -2,7 +2,7 @@ name: Sync Fork
 
 on:
   schedule:
-    - cron: '0 7 * * 1' # every monday at 7:00
+    - cron: '0 7 * * *' # every monday at 7:00
   workflow_dispatch: # on button click
 
 jobs:
@@ -25,7 +25,7 @@ jobs:
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK }}
           GITHUB_ACTOR: ${{ github.actor }}
-          GITHUB_JOB_NAME: "Synk fork ZMK"
+          GITHUB_JOB_NAME: "Tryed to synchronize fork ZMK"
           GITHUB_JOB_STATUS: ${{ job.status }}
 
       # - name: discord-notify
