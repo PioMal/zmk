@@ -15,13 +15,14 @@ jobs:
       - name: Update forked repository
         uses: tgymnich/fork-sync@v2.0
         with:
+          token:${{ secrets.PERSONAL_TOKEN }}
           owner: PioMal
           base: main
           head: main
           auto_approve: true
 
-      - name: Auto aprove
-        uses: hmarr/auto-approve-action@v4
+      # - name: Auto aprove
+      #   uses: hmarr/auto-approve-action@v4
 
       - name: Notify discord
         uses: th0th/notify-discord@v0.4.1
