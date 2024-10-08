@@ -15,7 +15,7 @@ jobs:
       - name: Update forked repository
         uses: tgymnich/fork-sync@v2.0
         with:
-          token:${{ secrets.PERSONAL_TOKEN }}
+          token: ${{ secrets.PERSONAL_TOKEN }}
           owner: PioMal
           base: main
           head: main
