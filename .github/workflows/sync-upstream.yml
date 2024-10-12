@@ -2,7 +2,7 @@ name: Sync Fork
 
 on:
   schedule:
-    - cron: '0 */12 * * *' # every 12 hours
+    - cron: '0 * */3 * *' # every 3 days
   workflow_dispatch: # on button click
 
 jobs:
@@ -30,9 +30,4 @@ jobs:
           GITHUB_JOB_NAME: "Tryed to synchronize fork ZMK"
           GITHUB_JOB_STATUS: ${{ job.status }}
 
-      # - name: discord-notify
-      #   uses: fateyan/action-discord-notifier@v1.2.0
-      #   with:
-      #     webhook: ${{ secrets.DISCORD_WEBHOOK }}
-      #     message-title: 'Updated forked ZMK repository'
             
