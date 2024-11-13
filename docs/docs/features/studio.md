@@ -2,12 +2,6 @@
 title: ZMK Studio
 ---
 
-:::warning[Beta Feature]
-
-ZMK Studio is in beta. Although every effort has been made to provide a stable experience, you may still encounter issues during use. Please report any issues to [GitHub Issues](https://github.com/zmkfirmware/zmk-studio/issues).
-
-:::
-
 ZMK Studio provides runtime update functionality to ZMK powered devices, allowing users to change their keymap layers without flashing new firmware to their keyboards. Studio is still under active development, and is not yet ready for casual end user use.
 
 ## Capabilities
@@ -56,6 +50,12 @@ Generally, if you intend to use ZMK Studio, then you should not make any further
 You can use ZMK Studio with Chrome/Edge at https://zmk.studio/.
 
 To use the native app for Linux, macOS, or Windows, download the appropriate file from the [latest release](https://github.com/zmkfirmware/zmk-studio/releases).
+
+:::warning
+
+To use ZMK Studio over USB, you need permission to access the USB serial port. This most commonly occurs on Linux, with various distributions having different methods of resolving the error. For example, you may need to be added to a `uucp` or a `dialout` group. Refer to your operating system's documentation for more information.
+
+:::
 
 ## Building
 
