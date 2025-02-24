@@ -60,6 +60,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Replace tokens
+        uses: cschleiden/replace-tokens@v1
+        with:
+          files: '["**/*.defconfig"]'
+        env:
+          KEYBOARD_NAME: ${{ inputs.keyboard_name }}
+
       - name: Create build directory
         run: |
           echo "build_dir=$(mktemp -d)" >> $GITHUB_ENV
