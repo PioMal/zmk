@@ -63,6 +63,8 @@ jobs:
       - name: Replace tokens
         uses: cschleiden/replace-tokens@v1
         with:
+          tokenPrefix: '##{'
+          tokenSuffix: '}##'
           files: '["**/*.defconfig"]'
         env:
           KEYBOARD_NAME: ${{ inputs.keyboard_name }}
