@@ -68,7 +68,6 @@ jobs:
           files: '["**/*.defconfig"]'
         env:
           KEYBOARD_NAME: ${{ inputs.keyboard_name }}
-
       - name: Create build directory
         run: |
           echo "build_dir=$(mktemp -d)" >> $GITHUB_ENV
