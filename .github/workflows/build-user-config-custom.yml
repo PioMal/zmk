@@ -57,17 +57,25 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Replace tokens
-        uses: cschleiden/replace-tokens@v1.3
-        with:
-          tokenPrefix: '##{'
-          tokenSuffix: '}##'
-          files: '["**/*.defconfig"]'
-        env:
-          KEYBOARD_NAME: ${{ inputs.keyboard_name }}
+#      - name: Replace tokens
+#        uses: cschleiden/replace-tokens@v1.3
+#        with:
+#          tokenPrefix: '##{'
+#          tokenSuffix: '}##'
+#          files: '["**/*.defconfig"]'
+#        env:
+#          KEYBOARD_NAME: ${{ inputs.keyboard_name }}
 
-      - name: Push changes
-        uses: stefanzweifel/git-auto-commit-action@v4
+      - name: Find and Replace
+        uses: jacobtomlinson/gha-find-replace@v3
+        with:
+          find: "##{KEYBOARD_NAME}##"
+          replace: ${{ inputs.keyboard_name }}
+          include: "**/*.defconfig"
+          regex: false
+
+#      - name: Push changes
+#        uses: stefanzweifel/git-auto-commit-action@v4
 
       - name: Create build directory
         run: |
