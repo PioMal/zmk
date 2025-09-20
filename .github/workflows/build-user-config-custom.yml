@@ -38,7 +38,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
+      - name: Replace tokens
+        uses: cschleiden/replace-tokens@v1.3
+        with:
+          tokenPrefix: '##{'
+          tokenSuffix: '}##'
+          files: '["**/*.defconfig"]'
+        env:
+          KEYBOARD_NAME: ${{ inputs.keyboard_name }}
       - name: Fetch Build Matrix
         run: |
           echo "build_matrix=$(yq -oj -I0 '${{ inputs.build_matrix_path }}')" >> $GITHUB_ENV
@@ -57,14 +64,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Replace tokens
-        uses: cschleiden/replace-tokens@v1.3
-        with:
-          tokenPrefix: '##{'
-          tokenSuffix: '}##'
-          files: '["**/*.defconfig"]'
-        env:
-          KEYBOARD_NAME: ${{ inputs.keyboard_name }}
+#      - name: Replace tokens
+#        uses: cschleiden/replace-tokens@v1.3
+#        with:
+#          tokenPrefix: '##{'
+#          tokenSuffix: '}##'
+#          files: '["**/*.defconfig"]'
+#        env:
+#          KEYBOARD_NAME: ${{ inputs.keyboard_name }}
       - name: Create build directory
         run: |
           echo "build_dir=$(mktemp -d)" >> $GITHUB_ENV
