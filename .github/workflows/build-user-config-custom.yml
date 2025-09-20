@@ -74,8 +74,8 @@ jobs:
           include: "**/*.defconfig"
           regex: false
 
-#      - name: Push changes
-#        uses: stefanzweifel/git-auto-commit-action@v4
+      - name: Push changes
+        uses: stefanzweifel/git-auto-commit-action@v4
 
       - name: Create build directory
         run: |
